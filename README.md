@@ -1,2 +1,2 @@
-# CC2-QuizApp
-CC#2 | Quiz Application (Website)
+# CC2-DiscordBanAppeals
+Discord Ban Appeals Website w/ Webhooks
