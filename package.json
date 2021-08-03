@@ -1,0 +1,25 @@
+{
+  "name": "CC2-DiscordBanAppeals",
+  "version": "1.0.0",
+  "description": "Discord Ban Appeals Website w/ Webhooks",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "xhr2": "^0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaryanKhClasses/CC2-DiscordBanAppeals.git"
+  },
+  "keywords": [],
+  "author": "AaryanKh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AaryanKhClasses/CC2-DiscordBanAppeals/issues"
+  },
+  "homepage": "https://github.com/AaryanKhClasses/CC2-DiscordBanAppeals#readme"
+}
