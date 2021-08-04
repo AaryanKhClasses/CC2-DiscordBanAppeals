@@ -5,18 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CC2-DiscordBanAppeals</title>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="./index.js" type="module"></script>
 </head>
 <body>
-    <form onsubmit="formSubmit()">
-        <label>Username: </label>
-        <input required type="text" id="username" placeholder="Username"><br>
-        <label>Tag: </label>
-        <input required type="text" id="usertag" placeholder="User Tag"><br>
-        <label>Guild ID: </label>
-        <input required type="text" id="guildID" placeholder="Guild ID"><br>
-        <button type="submit">Submit</button>
-    </form>
+    <label>Username: </label>
+    <input type="text" id="username" placeholder="Username"><br>
+    <label>Tag: </label>
+    <input type="text" id="usertag" placeholder="User Tag"><br>
+    <label>User ID: </label>
+    <input type="text" id="userID" placeholder="User ID"><br>
+    <label>Reason for Ban: </label>
+    <textarea type="text" id="reason" placeholder="Reason for ban"></textarea><br>
+    <label>Appeal: </label>
+    <textarea type="text" id="appeal" placeholder="Your Ban Appeal"></textarea><br>
+    <button id="submit" onclick="sendMessage()">Submit</button>
+    <script src="./index.js"></script>
 </body>
 </html>

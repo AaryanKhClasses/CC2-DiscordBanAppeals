@@ -1,48 +1,41 @@
-const Discord = require('discord.js')
-const XMLHttpRequest = require('xhr2')
-const config = require('./config.json')
-
-const webhookURL = config.webhookURL
-const client = new Discord.Client()
+const webhookURL = "" // Your Webhook URL Here
+const avatarURL = ""
 
 const username = document.getElementById('username')
 const usertag = document.getElementById('usertag')
-const guildID = document.getElementById('guildID')
+const userID = document.getElementById('userID')
+const reason = document.getElementById('reason')
+const appeal = document.getElementById('appeal')
 
-function formSubmit() {
-    if(!client.guilds.cache.get(guildID.value)) {
-        return alert('Invalid guild ID')
+function sendMessage() {
+    if(username.value === "" || usertag.value === "" || userID.value === "" || reason.value === "" || appeal.value === "") { return alert("Please fill all the Details!") }
+    if(usertag.value.length !== 4) { return alert("Invalid User Tag!") } 
+    if(userID.value.length !== 17 || userID.value.length !== 18) { return alert("Invalid User ID!") }
+    var request = new XMLHttpRequest();
+    request.open("POST", webhookURL);
+    request.setRequestHeader('Content-type', 'application/json');
+
+    var embed = {
+        author: { name: `${username.value}#${usertag.value}` },
+        title: "New Ban Appeal!",
+        timestamp: new Date(),
+        color: 0xFF0000,
+        footer: { text: `Ban Appeals Webhook | User ID: ${userID.value}` },
+        fields: [
+            { name: "User", value: `${username.value}#${usertag.value}`, inline: true },
+            { name: "UserID", value: `${userID.value}` },
+            { name: "Reason for Ban", value: `${reason.value}` },
+            { name: "Appeal", value: `${appeal.value}` }
+        ]
     }
 
-    if(!client.users.cache.find(user => user.username === username.value && user.discriminator === usertag.value)) {
-        return alert('Invalid user')
-    }
-
-    let request = new XMLHttpRequest()
-    request.open('POST', webhookURL)
-    request.setRequestHeader('Content-Type', 'application/json')
-
-    const avatarURL = client.users.cache.find(user => user.username === username.value && user.discriminator === usertag.value).avatarURL
-
-    let params = {
-        username: username.value,
+    var params = {
+        username: `Ban Appeals Webhook`,
         avatar_url: avatarURL,
-        "embeds": [{
-            "title": "New Ban Appeal!",
-            "color": "RED",
-            "thumbnail": { "url": `${guildID.value}` },
-            "fields": [
-                {
-                    "name": "Username",
-                    "value": `${username.value}#${usertag.value}`
-                },
-                {
-                    "name": "Ban Reason",
-                    "value": "abcd test"
-                }
-            ]
-        }]
+        embeds: [ embed ]
     }
 
     request.send(JSON.stringify(params))
+    alert('Ban Appeal Sent!')
+    console.log('Ban Appeal Sent!')
 }
