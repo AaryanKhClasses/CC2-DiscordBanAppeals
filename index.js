@@ -8,9 +8,6 @@ const reason = document.getElementById('reason')
 const appeal = document.getElementById('appeal')
 
 function sendMessage() {
-    if(username.value === "" || usertag.value === "" || userID.value === "" || reason.value === "" || appeal.value === "") { return alert("Please fill all the Details!") }
-    if(usertag.value.length !== 4) { return alert("Invalid User Tag!") } 
-    if(userID.value.length !== 17 || userID.value.length !== 18) { return alert("Invalid User ID!") }
     var request = new XMLHttpRequest();
     request.open("POST", webhookURL);
     request.setRequestHeader('Content-type', 'application/json');
@@ -20,10 +17,10 @@ function sendMessage() {
         title: "New Ban Appeal!",
         timestamp: new Date(),
         color: 0xFF0000,
-        footer: { text: `Ban Appeals Webhook | User ID: ${userID.value}` },
+        footer: { text: `Ban Appeals Webhook | User ID: ${(userID.value).toString()}` },
         fields: [
-            { name: "User", value: `${username.value}#${usertag.value}`, inline: true },
-            { name: "UserID", value: `${userID.value}` },
+            { name: "User", value: `${username.value}#${(usertag.value).toString()}`, inline: true },
+            { name: "UserID", value: `${(userID.value).toString()}`, inline: true },
             { name: "Reason for Ban", value: `${reason.value}` },
             { name: "Appeal", value: `${appeal.value}` }
         ]

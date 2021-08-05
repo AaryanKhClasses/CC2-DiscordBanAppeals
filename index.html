@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>CC2-DiscordBanAppeals</title>
 </head>
 <body>
-    <label>Username: </label>
-    <input type="text" id="username" placeholder="Username"><br>
-    <label>Tag: </label>
-    <input type="text" id="usertag" placeholder="User Tag"><br>
-    <label>User ID: </label>
-    <input type="text" id="userID" placeholder="User ID"><br>
-    <label>Reason for Ban: </label>
-    <textarea type="text" id="reason" placeholder="Reason for ban"></textarea><br>
-    <label>Appeal: </label>
-    <textarea type="text" id="appeal" placeholder="Your Ban Appeal"></textarea><br>
-    <button id="submit" onclick="sendMessage()">Submit</button>
+    <center>
+        <form onsubmit="sendMessage()">
+            <div class="mb-3 w-50 text-start">
+                <label for="username" class="form-label">Username: </label>
+                <input required type="text" id="username" placeholder="Username" class="form-control" aria-describedby="usernameInfo">
+                <div id="usernameInfo" class="form-text">Put your Discord Username here! (Ex: AaryanKh)</div>
+            </div>
+            <div class="mb-3 w-50 text-start">
+                <label for="usertag" class="form-label">User Tag: </label>
+                <input required type="number" id="usertag" placeholder="User Tag" class="form-control" aria-describedby="usertagInfo" maxlength="4">
+                <div id="usertagInfo" class="form-text">Put your Discord Tag (Discriminator) here! (Ex: 4532)</div>
+            </div>
+            <div class="mb-3 w-50 text-start">
+                <label for="userID" class="form-label">User ID: </label>
+                <input required type="number" id="userID" placeholder="User ID" class="form-control" aria-describedby="userIDInfo" maxlength="18">
+                <div id="userIDInfo" class="form-text">Put your Discord User ID here! (Ex: 4532)</div>
+            </div>
+            <div class="mb-3 w-50 text-start">
+                <label for="reason" class="form-label">Ban Reason: </label>
+                <input required type="text" id="reason" placeholder="Reason for ban" class="form-control" aria-describedby="reasonInfo" list="banReasons">
+                <div id="reasonInfo" class="form-text">Put the reason why you got banned! (Ex: DM Advertising)<br>NOTE: Write another appropriate reason, if the reason is not mentioned.</div>
+            </div>
+            <div class="mb-3 w-50 text-start">
+                <label for="appeal" class="form-label">Ban appeal: </label>
+                <input required type="text" id="appeal" placeholder="Your appeal" class="form-control" aria-describedby="appealInfo">
+                <div id="appealInfo" class="form-text">Write what you will and will not do if you get unbanned, in the most appealing, yet true way.</div>
+            </div>
+            <button id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </center>
+    <datalist id="banReasons">
+        <option>DM Advertising</option>
+        <option>Swearing / Bypassing</option>
+        <option>Being Toxic / Rude</option>
+        <option>Being Inappropriate</option>
+        <option>Racist Slurs</option>
+    </datalist>
     <script src="./index.js"></script>
 </body>
 </html>
